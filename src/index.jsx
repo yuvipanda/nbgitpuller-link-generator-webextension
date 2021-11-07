@@ -111,12 +111,12 @@ function implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav() 
             return;
         }
 
-        setupFi();
+        setup();
         // Dear lord in heaven, please forgive me.
     }, 1 * 1000)
 }
 
-function setupFi() {
+function setup() {
     if (document.getElementById('nbgitpuller-link-generator')) {
         console.log('nbgitpuller-link-generator already setup');
         return;
@@ -148,5 +148,5 @@ function setupFi() {
 
 }
 
-setupFi();
+setup();
 implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav();
