@@ -1,0 +1,39 @@
+{
+  "name": "nbgitpuller-link-generator",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvipanda/nbgitpuller-link-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuvipanda/nbgitpuller-link-generator/issues"
+  },
+  "homepage": "https://github.com/yuvipanda/nbgitpuller-link-generator#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^9.0.1",
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@primer/components": "^31.1.0",
+    "@primer/octicons": "^16.1.1",
+    "@primer/octicons-react": "^16.1.1",
+    "clipboard": "^2.0.8",
+    "git-url-parse": "^11.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  }
+}

@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"name": "nbgitpuller generator",
+	"version": "1.0",
+	"description": "Generate nbgitpuller links from your browser",
+	"icons": {
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://github.com/*"
+			],
+			"js": [
+				"bundle.js"
+			]
+		}
+	]
+}
