@@ -145,8 +145,8 @@ function setupFi() {
         root
     );
 
-    implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav();
 
 }
 
 setupFi();
+implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav();
