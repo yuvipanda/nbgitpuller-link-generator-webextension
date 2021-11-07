@@ -86,14 +86,47 @@ function NBGitPullerButton() {
     return b;
 }
 
+/**
+ * When you navigate between files and folders in GitHub, the navigation is done
+ * client side - so the onload events aren't fired again. This means our code to
+ * add the button isn't run. Ideally, we'll find some way to hook into this, and
+ * setup the button again after each file nav. Unfortunately, no such event seems
+ * to exist, at least not directly in content scripts. popstate is only for human
+ * interaction (like pressing the back button), and monkeypatching pushState seems
+ * sketchy and doesn't actually work. Possibly something with a background script
+ * is needed.
+ *
+ * In the meantime, instead, I just run a check every goddamn second. This is
+ * absolutely horrible, but it'll help me ship. And I need to talk to my therapist
+ * about not being able to really ship, so I think this is the right thing to do.
+ */
+function implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav() {
+    setInterval(() => {
+        if (document.hidden) {
+            // We're not in the foreground, nobody cares
+            return;
+        }
+
+        if (document.getElementById('nbgitpuller-link-generator')) {
+            console.log(2)
+            return;
+        }
+
+        setupFi();
+        // Dear lord in heaven, please forgive me.
+    }, 1 * 1000)
+}
+
 function setupFi() {
-    const body = document.getElementsByTagName('body')[0];
-    if (body.classList.contains('nbgitpuller-link-generator-loaded')) {
-        console.log('already loaded')
+    console.log(1)
+    if (document.getElementById('nbgitpuller-link-generator')) {
+        console.log('already setup');
         return;
     }
     // Add 'nbgitpuller' dropdown button
     const root = document.createElement('div');
+    root.id = 'nbgitpuller-link-generator';
+
     if (document.querySelector('.file-navigation > div.d-flex')) {
         // On a particular directory, insert this as first button, before 'Go to file'
         document.querySelector('.file-navigation > div.d-flex').prepend(root);
@@ -111,7 +144,8 @@ function setupFi() {
         root
     );
 
-    body.classList.add('nbgitpuller-link-generator-loaded');
+    implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav();
+
 }
 
 setupFi();
