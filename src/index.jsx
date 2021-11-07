@@ -108,7 +108,6 @@ function implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav() 
         }
 
         if (document.getElementById('nbgitpuller-link-generator')) {
-            console.log(2)
             return;
         }
 
@@ -118,9 +117,8 @@ function implementUgliestHackEverAt0430AMToKeepTheButtonFromDisappearingOnNav() 
 }
 
 function setupFi() {
-    console.log(1)
     if (document.getElementById('nbgitpuller-link-generator')) {
-        console.log('already setup');
+        console.log('nbgitpuller-link-generator already setup');
         return;
     }
     // Add 'nbgitpuller' dropdown button
