@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom';
 import React, { useEffect } from 'react';
 import GitUrlParse from 'git-url-parse';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 import { Button, Box, Text, Popover, Heading, ThemeProvider, TextInput } from '@primer/components';
 import { CopyIcon } from '@primer/octicons-react';
 
 import { AVAILABLE_APPS, generateRegularUrl } from './generator';
-
+import { getPref, setPref } from './prefs';
 
 function copyGeneratedUrl(hubUrl, app) {
     const parts = GitUrlParse(window.location.href);
@@ -20,8 +20,8 @@ function copyGeneratedUrl(hubUrl, app) {
 }
 
 function Form() {
-    const [hubUrl, setHubUrl] = useState('');
-    const [app, setApp] = useState('classic');
+    const [hubUrl, setHubUrl] = useState(getPref('hub-url', ''));
+    const [app, setApp] = useState(getPref('app', 'classic'));
     const [isValidHubUrl, setIsValidHubUrl] = useState(false);
     const [finishedCopying, setFinishedCopying] = useState(false);
 
@@ -35,6 +35,14 @@ function Form() {
         }
     }, [hubUrl]);
 
+    useEffect(() => {
+        setPref('hub-url', hubUrl);
+    }, [hubUrl]);
+
+    useEffect(() => {
+        setPref('app', app);
+    }, [app])
+
     return <Box display="flex" flexDirection="column">
         <Heading sx={{ fontSize: 2, mb: 1 }}>JupyterHub URL</Heading>
 
@@ -44,7 +52,7 @@ function Form() {
         <Heading sx={{ fontSize: 2, mb: 1, mt: 2 }}>Open in</Heading>
         <select className="form-select mb-1" onChange={(ev) => setApp(ev.target.value)} value={app}>
             {Object.entries(AVAILABLE_APPS).map(([name, value]) => {
-                return <option value={name}>{value.title}</option>
+                return <option key={name} value={name}>{value.title}</option>
             })};
         </select>
 
@@ -53,7 +61,7 @@ function Form() {
             // Flash a 'Copied!' message for 3 seconds after copying
             setFinishedCopying(true);
             setTimeout(() => setFinishedCopying(false), 3 * 1000)
-         }}>
+        }}>
             <CopyIcon /> {finishedCopying ? "Copied!" : "Copy nbgitpuller link"}
         </Button>
     </Box>
