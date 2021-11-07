@@ -49,18 +49,19 @@ function Form() {
 function NBGitPullerButton() {
     const [open, setOpen] = React.useState(false)
 
-    const b = <Box>
-        <Button sx={{ mr: 2 }} onClick={() => setOpen(!open)}>
+    // Using <details> here with details-overlay gives us behavior of closing the popover when clikced outside
+    const b = <details className="details-overlay details-reset">
+        <summary className="btn mr-2"  onClick={() => setOpen(!open)}>
             nbgitpuller <span className="dropdown-caret"></span>
-        </Button>
+        </summary>
+
 
         <Popover open={open} caret="top-left">
             <Popover.Content sx={{ mt: 2, width: 320 }}>
                 <Form />
             </Popover.Content>
         </Popover>
-    </Box>;
-    console.log(b);
+    </details>;
     return b;
 }
 
