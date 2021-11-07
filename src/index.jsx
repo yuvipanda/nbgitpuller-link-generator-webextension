@@ -131,9 +131,12 @@ function setupFi() {
     } else if (document.getElementById('blob-path')) {
         // On a particular file, insert it after the name of the file
         document.getElementById('blob-path').insertAdjacentElement('afterend', root)
-    } else {
+    } else if (document.querySelector('.file-navigation > div.flex-auto')) {
         // On root page of repo, insert this as first button, before 'Go To File'
         document.querySelector('.file-navigation > div.flex-auto').insertAdjacentElement('afterend', root);
+    } else {
+        // Looks like we're not on a page with content
+        return;
     }
     ReactDOM.render(
         <ThemeProvider>
