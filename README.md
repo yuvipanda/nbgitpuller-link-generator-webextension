@@ -18,3 +18,13 @@ can just copy the nbgitpuller URL, and share it with your students!
 
 The JupyterHub URL and application you choose are remembered, so
 you do not need to enter it over and over again.
+
+## Building the webextension
+
+```bash
+npm install
+npx webpack --mode=production
+npx web-ext build -s dist/
+```
+
+This produces a `.xpi` file in `web-ext-artifacts/` you can use.
