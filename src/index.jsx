@@ -78,7 +78,7 @@ function NBGitPullerButton() {
 
 
         <Popover open={open} caret="top-left">
-            <Popover.Content sx={{ mt: 2, width: 320 }}>
+            <Popover.Content sx={{ mt: 2, width: 320 }} className="color-shadow-large">
                 <Form />
             </Popover.Content>
         </Popover>
