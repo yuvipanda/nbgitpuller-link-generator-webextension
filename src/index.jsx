@@ -23,6 +23,7 @@ function Form() {
     const [hubUrl, setHubUrl] = useState('');
     const [app, setApp] = useState('classic');
     const [isValidHubUrl, setIsValidHubUrl] = useState(false);
+    const [finishedCopying, setFinishedCopying] = useState(false);
 
     useEffect(() => {
         try {
@@ -47,8 +48,13 @@ function Form() {
             })};
         </select>
 
-        <Button disabled={!isValidHubUrl} sx={{ mt: 2 }} onClick={() => copyGeneratedUrl(hubUrl, app)} >
-            <CopyIcon /> Copy nbgitpuller link
+        <Button disabled={!isValidHubUrl || finishedCopying} sx={{ mt: 2 }} onClick={() => {
+            copyGeneratedUrl(hubUrl, app);
+            // Flash a 'Copied!' message for 3 seconds after copying
+            setFinishedCopying(true);
+            setTimeout(() => setFinishedCopying(false), 3 * 1000)
+         }}>
+            <CopyIcon /> {finishedCopying ? "Copied!" : "Copy nbgitpuller link"}
         </Button>
     </Box>
 }
