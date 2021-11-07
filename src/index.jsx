@@ -29,7 +29,7 @@ function Form() {
             new URL(hubUrl);
             // hubUrl is a valid URL
             setIsValidHubUrl(true);
-        } catch(_) {
+        } catch (_) {
             setIsValidHubUrl(false);
         }
     }, [hubUrl]);
@@ -38,9 +38,16 @@ function Form() {
         <Heading sx={{ fontSize: 2, mb: 1 }}>JupyterHub URL</Heading>
 
         <TextInput value={hubUrl} onChange={(ev) => setHubUrl(ev.target.value)} placeholder="https://myjupyterhub.org" aria-label="JupyterHub URL" />
-        <Text color="danger.fg" sx={{visibility: isValidHubUrl ? "hidden": "visible"}}>Enter a valid URL</Text>
+        <Text color="danger.fg" sx={{ visibility: isValidHubUrl ? "hidden" : "visible" }}>Enter a valid URL</Text>
 
-        <Button disabled={!isValidHubUrl} sx={{mt: 2}} onClick={() => copyGeneratedUrl(hubUrl, app)} >
+        <Heading sx={{ fontSize: 2, mb: 1, mt: 2 }}>Open in</Heading>
+        <select className="form-select mb-1" onChange={(ev) => setApp(ev.target.value)} value={app}>
+            {Object.entries(AVAILABLE_APPS).map(([name, value]) => {
+                return <option value={name}>{value.title}</option>
+            })};
+        </select>
+
+        <Button disabled={!isValidHubUrl} sx={{ mt: 2 }} onClick={() => copyGeneratedUrl(hubUrl, app)} >
             <CopyIcon /> Copy nbgitpuller link
         </Button>
     </Box>
@@ -51,7 +58,7 @@ function NBGitPullerButton() {
 
     // Using <details> here with details-overlay gives us behavior of closing the popover when clikced outside
     const b = <details className="details-overlay details-reset">
-        <summary className="btn mr-2"  onClick={() => setOpen(!open)}>
+        <summary className="btn mr-2" onClick={() => setOpen(!open)}>
             nbgitpuller <span className="dropdown-caret"></span>
         </summary>
 
