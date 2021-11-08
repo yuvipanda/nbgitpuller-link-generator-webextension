@@ -3,6 +3,8 @@
 A browser extension to help you generate [nbgitpuller](https://jupyterhub.github.io/nbgitpuller/)
 links directly from GitHub.
 
+[Install Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/nbgitpuller-link-generator/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
 ## What does this do?
 
 On the GitHub page for files, folders and repositories, it adds an
@@ -21,9 +23,17 @@ you do not need to enter it over and over again.
 
 ## Installation
 
-The extension has been submitted to the Mozilla and Chrome addon stores,
-but takes a while to get approved. In the meantime, you can install it
-manually and test it out!
+### On Firefox
+
+The preferred, easy method to install and keep the extension up to date is to install it
+from the [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/nbgitpuller-link-generator/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search).
+
+### On Chrome
+
+The Chrome Web store takes a little more work to publish to, hopefully it will be done soon.
+In the meantime, you can install it manually.
+
+## Manual Installation
 
 ### On Firefox
 
