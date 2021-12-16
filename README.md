@@ -30,8 +30,8 @@ from the [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/nbg
 
 ### On Chrome
 
-The Chrome Web store takes a little more work to publish to, hopefully it will be done soon.
-In the meantime, you can install it manually.
+The preferred, easy method to install and keep the extension up to date is to install it
+from the [the Chrome Web Store](https://chrome.google.com/webstore/detail/nbgitpuller-link-generato/hpdbdpklpmppnoibabdkkhnfhkkehgnc).
 
 ## Manual Installation
 
