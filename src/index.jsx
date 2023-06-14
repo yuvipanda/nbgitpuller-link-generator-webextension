@@ -130,9 +130,12 @@ function setup() {
         document.querySelector('.file-navigation > div.d-flex').prepend(root);
     } else if (document.getElementById('blob-path')) {
         // On a particular file, insert it after the name of the file
-        document.getElementById('blob-path').insertAdjacentElement('afterend', root)
+        document.getElementById('blob-path').insertAdjacentElement('afterend', root);
+    } else if (document.querySelector('[data-testid="breadcrumb-copy-path-button"]')) {
+         // On a particular file/directory, insert it after the name of the file (new GitHub UI)
+        document.querySelector('[data-testid="breadcrumb-copy-path-button"]').insertAdjacentElement('afterend', root);
     } else if (document.querySelector('.file-navigation > div.flex-auto')) {
-        // On root page of repo, insert this as first button, before 'Go To File'
+        // On root page of repo, insert this as first button, before 'Go To File' (old&new GitHub UI)
         document.querySelector('.file-navigation > div.flex-auto').insertAdjacentElement('afterend', root);
     } else {
         // Looks like we're not on a page with content
