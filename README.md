@@ -70,4 +70,4 @@ npx webpack --mode=production
 npx web-ext build -s dist/
 ```
 
-This produces a `.xpi` file in `web-ext-artifacts/` you can use.
+This produces a `.zip` file in `web-ext-artifacts/` you can use.
