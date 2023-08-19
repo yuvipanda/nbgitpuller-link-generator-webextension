@@ -11,6 +11,7 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{ from: "src/manifest.json"},
+				{ from: "src/popup.html"},
 			],
 		}),
 	],

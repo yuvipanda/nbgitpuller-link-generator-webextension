@@ -1,18 +1,15 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "nbgitpuller Link generator",
-	"version": "1.0",
+	"version": "2.0",
 	"description": "A browser extension to generate nbgitpuller (http://jupyterhub.github.io/nbgitpullerbgitpuller) links directly from GitHub",
+	"permissions": [
+		"tabs"
+	],
 	"icons": {
 	},
-	"content_scripts": [
-		{
-			"matches": [
-				"https://github.com/*"
-			],
-			"js": [
-				"bundle.js"
-			]
-		}
-	]
+	"action": {
+		"default_title": "Generate nbgitpuller link",
+		"default_popup": "popup.html"
+	}
 }
