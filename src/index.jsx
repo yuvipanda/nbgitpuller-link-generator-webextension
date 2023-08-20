@@ -13,7 +13,7 @@ import { AVAILABLE_APPS, generateRegularUrl } from './generator';
 import { getPref, setPref } from './prefs';
 
 function copyGeneratedUrl(hubUrl, app) {
-    var query = { active: true, currentWindow: true };
+    const query = { active: true, currentWindow: true };
     chrome.tabs.query(query, function (tabs) {
         var activeTab = tabs[0];
         if (activeTab) {
