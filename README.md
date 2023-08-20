@@ -64,7 +64,13 @@ You can find more information [here](https://developer.chrome.com/docs/extension
 ```bash
 npm install
 npx webpack --mode=production
-npx web-ext build -s dist/
+```
+
+Then build for either browser: (They have slightly different manifest files)
+
+```
+npx web-ext build -s dist-firefox/
+npx web-ext build -s dist-chrome/
 ```
 
 This produces a `.zip` file in `web-ext-artifacts/` you can use.

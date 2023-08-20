@@ -1,21 +1,28 @@
 const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 
+const dists = ['dist-chrome', 'dist-firefox'];
+
 module.exports = {
-	entry: './src/index.jsx',
+	entry: {
+		'dist-chrome/bundle': './src/index.jsx',
+		'dist-firefox/bundle': './src/index.jsx'
+	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
+			filename: '[name].js',
+			path: path.resolve(__dirname, './'),
 	},
 	plugins: [
 		new CopyPlugin({
 			patterns: [
-				{ from: "src/background.js"},
-				{ from: "src/manifest.json"},
-				{ from: "src/popup.html"},
-				{ from: "src/popup_disabled.html"},
-				{ from: "src/icon_32.png"},
-				{ from: "src/icon_32_disabled.png"},
+				{from: "src/*.html", to: "dist-chrome/[name].html"},
+				{from: "src/*.html", to: "dist-firefox/[name].html"},
+				{from: "src/*.png", to: "dist-chrome/[name].png"},
+				{from: "src/*.png", to: "dist-firefox/[name].png"},
+				{ from: "src/background.js", to: "dist-chrome/" },
+				{ from: "src/background.js", to: "dist-firefox/" },
+				{ from: "src/manifest-chrome.json", to: 'dist-chrome/manifest.json'},
+				{ from: "src/manifest-firefox.json", to: 'dist-firefox/manifest.json'},
 			],
 		}),
 	],
