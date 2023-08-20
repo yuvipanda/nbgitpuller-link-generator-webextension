@@ -10,8 +10,12 @@ module.exports = {
 	plugins: [
 		new CopyPlugin({
 			patterns: [
+				{ from: "src/background.js"},
 				{ from: "src/manifest.json"},
 				{ from: "src/popup.html"},
+				{ from: "src/popup_disabled.html"},
+				{ from: "src/icon_32.png"},
+				{ from: "src/icon_32_disabled.png"},
 			],
 		}),
 	],

@@ -7,12 +7,9 @@ links directly from GitHub.
 
 ## What does this do?
 
-On the GitHub page for files, folders and repositories, it adds an
-'nbgitpuller' button.
+It adds an icon to the browser toolbar which will be enabled whenever you are on GitHub.
 
-![nbgitpuller button](screenshot-button.png)
-
-On clicking this, you can enter a JupyterHub URL and the application
+On clicking the button, a form pops up. You can enter a JupyterHub URL and the application
 you want to use to open this file, folder or repository. Then you
 can just copy the nbgitpuller URL, and share it with your students!
 

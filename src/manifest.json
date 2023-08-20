@@ -6,9 +6,13 @@
 	"permissions": [
 		"tabs"
 	],
-	"icons": {
+	"background": {
+		"service_worker": "background.js"
 	},
 	"action": {
+		"default_icon": {
+			"32": "icon_32.png"
+		},
 		"default_title": "Generate nbgitpuller link",
 		"default_popup": "popup.html"
 	}
