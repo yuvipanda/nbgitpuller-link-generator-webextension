@@ -15,7 +15,7 @@ import { getPref, setPref } from './prefs';
 function copyGeneratedUrl(hubUrl, app) {
     const query = { active: true, currentWindow: true };
     chrome.tabs.query(query, function (tabs) {
-        var activeTab = tabs[0];
+        const activeTab = tabs[0];
         if (activeTab) {
             const parts = GitUrlParse(activeTab.url);
             const repoUrl = `${parts.protocol}://${parts.source}/${parts.full_name}`;
