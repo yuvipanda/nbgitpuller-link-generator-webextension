@@ -69,8 +69,8 @@ npx webpack --mode=production
 Then build for either browser: (They have slightly different manifest files)
 
 ```
-npx web-ext build -s dist-firefox/
-npx web-ext build -s dist-chrome/
+npx web-ext build -s dist-firefox/ -a web-ext-artifacts-firefox --overwrite-dest
+npx web-ext build -s dist-chrome/ -a web-ext-artifacts-chrome --overwrite-dest
 ```
 
-This produces a `.zip` file in `web-ext-artifacts/` you can use.
+This produces a `.zip` file in each `web-ext-artifacts*` folder that you can use.

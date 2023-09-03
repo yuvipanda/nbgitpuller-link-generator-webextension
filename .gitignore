@@ -108,4 +108,4 @@ dist-firefox
 .DS_Store
 
 package-lock.json
-web-ext-artifacts/
+web-ext-artifacts*
