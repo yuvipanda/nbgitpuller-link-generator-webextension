@@ -6,6 +6,11 @@
 	"permissions": [
 		"tabs"
 	],
+	"browser_specific_settings": {
+		"gecko": {
+		  "id": "nbgitpuller-link-generator-webextension@yuvi.in"
+		}
+	},
 	"background": {
 		"scripts": ["background.js"]
 	},
