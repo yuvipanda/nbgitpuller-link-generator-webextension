@@ -81,6 +81,8 @@ typings/
 # Nuxt.js build / generate output
 .nuxt
 dist
+dist-chrome
+dist-firefox
 
 # Gatsby files
 .cache/
@@ -106,4 +108,4 @@ dist
 .DS_Store
 
 package-lock.json
-web-ext-artifacts/
+web-ext-artifacts*

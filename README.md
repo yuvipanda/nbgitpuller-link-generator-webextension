@@ -7,12 +7,9 @@ links directly from GitHub.
 
 ## What does this do?
 
-On the GitHub page for files, folders and repositories, it adds an
-'nbgitpuller' button.
+It adds an icon to the browser toolbar which will be enabled whenever you are on GitHub.
 
-![nbgitpuller button](screenshot-button.png)
-
-On clicking this, you can enter a JupyterHub URL and the application
+On clicking the button, a form pops up. You can enter a JupyterHub URL and the application
 you want to use to open this file, folder or repository. Then you
 can just copy the nbgitpuller URL, and share it with your students!
 
@@ -67,7 +64,13 @@ You can find more information [here](https://developer.chrome.com/docs/extension
 ```bash
 npm install
 npx webpack --mode=production
-npx web-ext build -s dist/
 ```
 
-This produces a `.zip` file in `web-ext-artifacts/` you can use.
+Then build for either browser: (They have slightly different manifest files)
+
+```
+npx web-ext build -s dist-firefox/ -a web-ext-artifacts-firefox --overwrite-dest
+npx web-ext build -s dist-chrome/ -a web-ext-artifacts-chrome --overwrite-dest
+```
+
+This produces a `.zip` file in each `web-ext-artifacts*` folder that you can use.
