@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "nbgitpuller Link generator",
-	"version": "2.0",
+	"version": "3.0",
 	"description": "A browser extension to generate nbgitpuller (http://jupyterhub.github.io/nbgitpullerbgitpuller) links directly from GitHub",
 	"permissions": [
 		"tabs"
