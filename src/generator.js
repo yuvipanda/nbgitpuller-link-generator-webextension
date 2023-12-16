@@ -20,8 +20,8 @@ function generateRegularUrl(hubUrl, repoUrl, branch, app, filepath) {
 }
 
 const AVAILABLE_APPS = {
-    classic: {
-        title: 'Classic Notebook',
+    notebook: {
+        title: 'Notebook',
         generateUrlPath: function (path) { return 'tree/' + path; },
     },
     retrolab: {
