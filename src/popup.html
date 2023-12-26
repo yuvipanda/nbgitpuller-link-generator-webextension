@@ -1,10 +1,27 @@
-<html style="height: fit-content;">
+<html>
   <head>
     <title>NBGitPuller</title>
+    <style>
+      html {
+          height: fit-content;
+      }
+
+      #root {
+          width:370px;
+          height:190px;
+      }
+
+      .normal{
+          height: 190px;
+      }
+
+      .expanded {
+          height: 340px;
+      }
+    </style>
   </head>
-  <body id="popoutBody">
-    <div id="root" style="width:370px; height:190px;"></div>
-    <!-- <div id="root" style="width:320px; height:200px;"></div> -->
+  <body id="popoutBody" class="normal">
+    <div id="root" class="normal"></div>
     <script src="bundle.js"></script>
   </body>
 </html>

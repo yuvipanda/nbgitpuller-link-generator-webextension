@@ -9,7 +9,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(function (object) {
-    let externalUrl = "https://robust-cry-f5f.notion.site/nbgitpuller-extension-cc643bb29b79492aa3e841e7dc18a9b2?pvs=4";
+    let externalUrl = "https://docs.google.com/document/d/e/2PACX-1vTGWZQmI-GhKJ2GP0c4wAGhVf5bMPDdbXzNJnYGOYKbxjCNSRxtAEvvmlHafs6oln44MFCH8aW_6uIC/pub";
 
     if (object.reason === chrome.runtime.OnInstalledReason.INSTALL) {
         chrome.tabs.create({ url: externalUrl }, function (tab) {
