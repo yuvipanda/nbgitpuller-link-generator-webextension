@@ -35,7 +35,6 @@ function Form() {
     const [app, setApp] = useState(getPref('app', 'classic'));
     const [isValidHubUrl, setIsValidHubUrl] = useState(false);
     const [finishedCopying, setFinishedCopying] = useState(false);
-    // const [isDropdownOpen, setDropdownOpen] = useState(false);
 
 
     useEffect(() => {
@@ -56,40 +55,15 @@ function Form() {
         setPref('app', app);
     }, [app])
 
-    // const menuItems = Object.entries(AVAILABLE_APPS).map(([name, value]) => ({
-    //     text: value.title,
-    //     key: name
-    // }));
-    
-    // const handleMenuChange = (item) => {
-    //     if (item) {
-    //         setApp(item.key);
-    //     }
-    // };
-
-    // const changeOpenState = (item) => {
-    //     if(isDropdownOpen == true){
-    //         document.getElementById("root").className = "normal";
-    //         document.getElementById("popoutBody").className = "normal";
-    //         setDropdownOpen(false);
-    //     } else {
-    //         document.getElementById("root").className = "expanded";
-    //         document.getElementById("popoutBody").className = "expanded";
-    //         setDropdownOpen(true);
-    //     }
-    // };
-
     const handleSelectChange = (event) => {
+        console.log(event.target)
         const selectedItemKey = event.target.value;
-        setApp(selectedItemKey); // Assuming setApp is a state setter function for 'app'
+        setApp(selectedItemKey);
     };
 
-    // Map AVAILABLE_APPS to option elements
     const options = Object.entries(AVAILABLE_APPS).map(([key, value]) => (
         <option value={key} key={key}>{value.title}</option>
     ));
-
-    
 
     return <Box display="flex" flexDirection="column">
         <Heading sx={{ fontSize: 2, mb: 1 }}>JupyterHub URL</Heading>
@@ -108,14 +82,6 @@ function Form() {
 
         <Heading sx={{ fontSize: 2, mb: 1, mt: 3 }}>Open in</Heading>
 
-        {/* <DropdownMenu
-            items={menuItems}
-            onChange={handleMenuChange}
-            placeholder={AVAILABLE_APPS[app].title} // Display the value of 'name' or a placeholder
-            open={isDropdownOpen}
-            onOpenChange={changeOpenState}
-        /> */}
-
         <div class="select-container">
             <select class="custom-select" value={app} onChange={handleSelectChange}>
                 {options}
@@ -133,7 +99,7 @@ function Form() {
 
             <Button
                 disabled={!isValidHubUrl || finishedCopying}
-                style={{ flexGrow: 1, backgroundColor: '#1E782F', opacity: ((!isValidHubUrl || finishedCopying)?0.6:1),  marginTop: '8px' }}
+                className="action-button"
                 onClick={() => {
                     copyGeneratedUrl(hubUrl, app, false);
                     // Flash a 'Copied!' message for 3 seconds after copying

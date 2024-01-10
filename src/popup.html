@@ -11,29 +11,19 @@
           height:190px;
       }
 
-      /* .normal{
-          height: 190px;
-      }
-
-      .expanded {
-          height: 340px;
-      } */
-
-      /* Style the dropdown container */
       .select-container {
         position: relative;
         display: inline-block;
-        width: 100%; /* Adjust as necessary */
+        width: 100%;
       }
 
-      /* Style the select field */
       select.custom-select {
         padding: 8px 15px;
         width: 100%;
         border: 1px solid #ccc;
         border-radius: 5px;
         background-color: white;
-        font-size: 14px; /* Adjust as necessary */
+        font-size: 14px;
       }
 
       .button-row {
@@ -43,24 +33,18 @@
       }
 
       .action-button {
+        background-color: #2fa13c !important;
         flex-grow: 1;
+        color: #FFFFFF !important;
         margin-top: 8px;
       }
 
-      .button-disabled {
+      .action-button:disabled {
         opacity: 0.6;
-      }
-
-      .button-enabled {
-        opacity: 1;
       }
 
     </style>
   </head>
-  <!-- <body id="popoutBody" class="normal">
-    <div id="root" class="normal"></div>
-    <script src="bundle.js"></script>
-  </body> -->
   <body id="popoutBody">
     <div id="root"></div>
     <script src="bundle.js"></script>
