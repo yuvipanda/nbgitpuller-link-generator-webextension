@@ -9,7 +9,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(function (object) {
-    let externalUrl = "https://docs.google.com/document/d/e/2PACX-1vTGWZQmI-GhKJ2GP0c4wAGhVf5bMPDdbXzNJnYGOYKbxjCNSRxtAEvvmlHafs6oln44MFCH8aW_6uIC/pub";
+    let externalUrl = "https://github.com/ranashreyas/nbgitpuller-link-generator-webextension/blob/popout/usage.md";
 
     if (object.reason === chrome.runtime.OnInstalledReason.INSTALL) {
         chrome.tabs.create({ url: externalUrl }, function (tab) {

@@ -21,9 +21,10 @@ function copyGeneratedUrl(hubUrl, app, open) {
             const parts = GitUrlParse(activeTab.url);
             const repoUrl = `${parts.protocol}://${parts.source}/${parts.full_name}`;
             const url = generateRegularUrl(hubUrl, repoUrl, parts.ref, app, parts.name + '/' + parts.filepath);
-            navigator.clipboard.writeText(url);
             if (open) {
                 chrome.tabs.create({url: url});
+            } else {
+                navigator.clipboard.writeText(url);
             }
         }
     });
@@ -34,7 +35,7 @@ function Form() {
     const [app, setApp] = useState(getPref('app', 'classic'));
     const [isValidHubUrl, setIsValidHubUrl] = useState(false);
     const [finishedCopying, setFinishedCopying] = useState(false);
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    // const [isDropdownOpen, setDropdownOpen] = useState(false);
 
 
     useEffect(() => {
@@ -55,32 +56,42 @@ function Form() {
         setPref('app', app);
     }, [app])
 
-    const menuItems = Object.entries(AVAILABLE_APPS).map(([name, value]) => ({
-        text: value.title,
-        key: name
-    }));
+    // const menuItems = Object.entries(AVAILABLE_APPS).map(([name, value]) => ({
+    //     text: value.title,
+    //     key: name
+    // }));
     
-    const handleMenuChange = (item) => {
-        if (item) {
-            setApp(item.key);
-        }
+    // const handleMenuChange = (item) => {
+    //     if (item) {
+    //         setApp(item.key);
+    //     }
+    // };
+
+    // const changeOpenState = (item) => {
+    //     if(isDropdownOpen == true){
+    //         document.getElementById("root").className = "normal";
+    //         document.getElementById("popoutBody").className = "normal";
+    //         setDropdownOpen(false);
+    //     } else {
+    //         document.getElementById("root").className = "expanded";
+    //         document.getElementById("popoutBody").className = "expanded";
+    //         setDropdownOpen(true);
+    //     }
+    // };
+
+    const handleSelectChange = (event) => {
+        const selectedItemKey = event.target.value;
+        setApp(selectedItemKey); // Assuming setApp is a state setter function for 'app'
     };
 
-    const changeOpenState = (item) => {
-        if(isDropdownOpen == true){
-            document.getElementById("root").className = "normal";
-            document.getElementById("popoutBody").className = "normal";
-            setDropdownOpen(false);
-        } else {
-            document.getElementById("root").className = "expanded";
-            document.getElementById("popoutBody").className = "expanded";
-            setDropdownOpen(true);
-        }
-        
-    };
+    // Map AVAILABLE_APPS to option elements
+    const options = Object.entries(AVAILABLE_APPS).map(([key, value]) => (
+        <option value={key} key={key}>{value.title}</option>
+    ));
+
+    
 
     return <Box display="flex" flexDirection="column">
-        {/* https://datahub.berkeley.edu */}
         <Heading sx={{ fontSize: 2, mb: 1 }}>JupyterHub URL</Heading>
 
         <TextInput
@@ -97,15 +108,22 @@ function Form() {
 
         <Heading sx={{ fontSize: 2, mb: 1, mt: 3 }}>Open in</Heading>
 
-        <DropdownMenu
+        {/* <DropdownMenu
             items={menuItems}
             onChange={handleMenuChange}
             placeholder={AVAILABLE_APPS[app].title} // Display the value of 'name' or a placeholder
             open={isDropdownOpen}
             onOpenChange={changeOpenState}
-        />
+        /> */}
 
-        <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+        <div class="select-container">
+            <select class="custom-select" value={app} onChange={handleSelectChange}>
+                {options}
+            </select>
+        </div>
+       
+
+        <div class='button-row'>
 
             <Button disabled={!isValidHubUrl || finishedCopying} sx={{ mt: 2}} onClick={() => {
                 copyGeneratedUrl(hubUrl, app, true);
@@ -113,8 +131,9 @@ function Form() {
                 <TabExternalIcon /> Open in tab
             </Button>
 
-            <Button disabled={!isValidHubUrl || finishedCopying}
-                style={{ flexGrow: 1, backgroundColor: '#52c786', opacity: ((!isValidHubUrl || finishedCopying)?0.6:1),  marginTop: '8px' }}
+            <Button
+                disabled={!isValidHubUrl || finishedCopying}
+                style={{ flexGrow: 1, backgroundColor: '#1E782F', opacity: ((!isValidHubUrl || finishedCopying)?0.6:1),  marginTop: '8px' }}
                 onClick={() => {
                     copyGeneratedUrl(hubUrl, app, false);
                     // Flash a 'Copied!' message for 3 seconds after copying
