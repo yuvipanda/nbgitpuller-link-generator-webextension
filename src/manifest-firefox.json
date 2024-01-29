@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"name": "nbgitpuller Link generator",
+	"name": "Datahub Link generator",
 	"version": "3.0",
 	"description": "A browser extension to generate nbgitpuller (http://jupyterhub.github.io/nbgitpullerbgitpuller) links directly from GitHub",
 	"permissions": [
@@ -18,7 +18,7 @@
 		"default_icon": {
 			"32": "icon_32.png"
 		},
-		"default_title": "Generate nbgitpuller link",
+		"default_title": "Generate datahub link",
 		"default_popup": "popup.html"
 	}
 }

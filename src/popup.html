@@ -1,9 +1,52 @@
 <html>
   <head>
     <title>NBGitPuller</title>
+    <style>
+      html {
+          height: fit-content;
+      }
+
+      #root {
+          width:370px;
+          height:190px;
+      }
+
+      .select-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      select.custom-select {
+        padding: 8px 15px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 14px;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .action-button {
+        background-color: #2fa13c !important;
+        flex-grow: 1;
+        color: #FFFFFF !important;
+        margin-top: 8px;
+      }
+
+      .action-button:disabled {
+        opacity: 0.6;
+      }
+
+    </style>
   </head>
-  <body>
-    <div id="root" style="width:320px; height:200px;"></div>
+  <body id="popoutBody">
+    <div id="root"></div>
     <script src="bundle.js"></script>
   </body>
 </html>

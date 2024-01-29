@@ -13,7 +13,7 @@ On clicking the button, a form pops up. You can enter a JupyterHub URL and the a
 you want to use to open this file, folder or repository. Then you
 can just copy the nbgitpuller URL, and share it with your students!
 
-![nbgitpuller popover](screenshot-popover.png)
+![nbgitpuller popover](usage-media/readme1.png)
 
 The JupyterHub URL and application you choose are remembered, so
 you do not need to enter it over and over again.
