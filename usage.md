@@ -1,4 +1,6 @@
-# ❗️nbgitpuller extension
+
+<h1><img align="center" height="30" src="icon.png"> nbgitpuller extension</h3>
+
 
 > 🚨Setup and tutorial instructions for using the nbgitpuller chrome extension for assignment distribution
 
